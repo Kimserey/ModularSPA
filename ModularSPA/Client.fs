@@ -9,10 +9,7 @@ open WebSharper.UI.Next.Client
 [<JavaScript>]
 module Client =    
     let Main =
-        [
-            FeatureOne.doc
-            FeatureTwo.doc
-        ]
+        Root.pages
         |> Seq.cast
         |> Doc.Concat
         |> Doc.RunById "main"

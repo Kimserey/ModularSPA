@@ -111,14 +111,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ModularSPA.FeatureOne\ModularSPA.FeatureOne.fsproj">
-      <Name>ModularSPA.FeatureOne</Name>
-      <Project>{1cec5085-d109-46e7-8160-819150ce8c94}</Project>
-      <Private>True</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\ModularSPA.FeatureTwo\ModularSPA.FeatureTwo.fsproj">
-      <Name>ModularSPA.FeatureTwo</Name>
-      <Project>{934f91d3-da98-402a-84ce-27a1b489f50f}</Project>
+    <ProjectReference Include="..\ModularSPA.Root\ModularSPA.Root.fsproj">
+      <Name>ModularSPA.Root</Name>
+      <Project>{a296d05f-b07f-4a39-b495-d0fe5a4ffe02}</Project>
       <Private>True</Private>
     </ProjectReference>
   </ItemGroup>

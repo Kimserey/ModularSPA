@@ -17250,37 +17250,6 @@ var JSON;JSON||(JSON={}),function(){"use strict";function i(n){return n<10?"0"+n
 ;
 (function()
 {
- var Global=this,Runtime=this.IntelliFactory.Runtime,List,UI,Next,Doc,ModularSPA,FeatureTwo;
- Runtime.Define(Global,{
-  ModularSPA:{
-   FeatureTwo:{
-    doc:Runtime.Field(function()
-    {
-     var arg20;
-     arg20=List.ofArray([Doc.TextNode("This is feature TWO")]);
-     return Doc.Element("h1",[],arg20);
-    })
-   }
-  }
- });
- Runtime.OnInit(function()
- {
-  List=Runtime.Safe(Global.WebSharper.List);
-  UI=Runtime.Safe(Global.WebSharper.UI);
-  Next=Runtime.Safe(UI.Next);
-  Doc=Runtime.Safe(Next.Doc);
-  ModularSPA=Runtime.Safe(Global.ModularSPA);
-  return FeatureTwo=Runtime.Safe(ModularSPA.FeatureTwo);
- });
- Runtime.OnLoad(function()
- {
-  FeatureTwo.doc();
-  return;
- });
-}());
-
-(function()
-{
  var Global=this,Runtime=this.IntelliFactory.Runtime,List,UI,Next,Doc,ModularSPA,FeatureOne;
  Runtime.Define(Global,{
   ModularSPA:{
@@ -17312,13 +17281,72 @@ var JSON;JSON||(JSON={}),function(){"use strict";function i(n){return n<10?"0"+n
 
 (function()
 {
- var Global=this,Runtime=this.IntelliFactory.Runtime,UI,Next,Doc,List,ModularSPA,FeatureOne,FeatureTwo,Client;
+ var Global=this,Runtime=this.IntelliFactory.Runtime,List,UI,Next,Doc,ModularSPA,FeatureTwo;
+ Runtime.Define(Global,{
+  ModularSPA:{
+   FeatureTwo:{
+    doc:Runtime.Field(function()
+    {
+     var arg20;
+     arg20=List.ofArray([Doc.TextNode("This is feature TWO")]);
+     return Doc.Element("h1",[],arg20);
+    })
+   }
+  }
+ });
+ Runtime.OnInit(function()
+ {
+  List=Runtime.Safe(Global.WebSharper.List);
+  UI=Runtime.Safe(Global.WebSharper.UI);
+  Next=Runtime.Safe(UI.Next);
+  Doc=Runtime.Safe(Next.Doc);
+  ModularSPA=Runtime.Safe(Global.ModularSPA);
+  return FeatureTwo=Runtime.Safe(ModularSPA.FeatureTwo);
+ });
+ Runtime.OnLoad(function()
+ {
+  FeatureTwo.doc();
+  return;
+ });
+}());
+
+(function()
+{
+ var Global=this,Runtime=this.IntelliFactory.Runtime,List,ModularSPA,FeatureOne,FeatureTwo,Root;
+ Runtime.Define(Global,{
+  ModularSPA:{
+   Root:{
+    pages:Runtime.Field(function()
+    {
+     return List.ofArray([FeatureOne.doc(),FeatureTwo.doc()]);
+    })
+   }
+  }
+ });
+ Runtime.OnInit(function()
+ {
+  List=Runtime.Safe(Global.WebSharper.List);
+  ModularSPA=Runtime.Safe(Global.ModularSPA);
+  FeatureOne=Runtime.Safe(ModularSPA.FeatureOne);
+  FeatureTwo=Runtime.Safe(ModularSPA.FeatureTwo);
+  return Root=Runtime.Safe(ModularSPA.Root);
+ });
+ Runtime.OnLoad(function()
+ {
+  Root.pages();
+  return;
+ });
+}());
+
+(function()
+{
+ var Global=this,Runtime=this.IntelliFactory.Runtime,UI,Next,Doc,ModularSPA,Root,Client;
  Runtime.Define(Global,{
   ModularSPA:{
    Client:{
     Main:Runtime.Field(function()
     {
-     return Doc.RunById("main",Doc.Concat(List.ofArray([FeatureOne.doc(),FeatureTwo.doc()])));
+     return Doc.RunById("main",Doc.Concat(Root.pages()));
     })
    }
   }
@@ -17328,10 +17356,8 @@ var JSON;JSON||(JSON={}),function(){"use strict";function i(n){return n<10?"0"+n
   UI=Runtime.Safe(Global.WebSharper.UI);
   Next=Runtime.Safe(UI.Next);
   Doc=Runtime.Safe(Next.Doc);
-  List=Runtime.Safe(Global.WebSharper.List);
   ModularSPA=Runtime.Safe(Global.ModularSPA);
-  FeatureOne=Runtime.Safe(ModularSPA.FeatureOne);
-  FeatureTwo=Runtime.Safe(ModularSPA.FeatureTwo);
+  Root=Runtime.Safe(ModularSPA.Root);
   return Client=Runtime.Safe(ModularSPA.Client);
  });
  Runtime.OnLoad(function()
