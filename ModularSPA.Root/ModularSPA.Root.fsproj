@@ -55,6 +55,9 @@
     <Error Condition="!Exists('..\packages\WebSharper.3.6.14.237\build\WebSharper.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\WebSharper.3.6.14.237\build\WebSharper.targets'))" />
   </Target>
   <ItemGroup>
+    <None Include="Cadwyn.Main.fs" />
+    <None Include="Solas.Main.fs" />
+    <None Include="Bron.Main.fs" />
     <Compile Include="Main.fs" />
     <Content Include="packages.config" />
   </ItemGroup>
