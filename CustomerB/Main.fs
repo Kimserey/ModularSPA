@@ -1,0 +1,3 @@
+namespace CustomerB
+
+open WebSharper

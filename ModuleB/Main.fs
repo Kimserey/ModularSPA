@@ -1,0 +1,3 @@
+namespace ModuleB
+
+open WebSharper
