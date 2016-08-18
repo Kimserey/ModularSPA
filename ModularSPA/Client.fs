@@ -8,8 +8,11 @@ open WebSharper.UI.Next.Client
 
 [<JavaScript>]
 module Client =    
+    
+    [<Inline """ModularSPA.Configurations.pages()""">]
+    let pages = X<Doc list>
+
     let Main =
-        Root.pages
-        |> Seq.cast
+        pages
         |> Doc.Concat
         |> Doc.RunById "main"
