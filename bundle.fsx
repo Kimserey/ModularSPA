@@ -53,6 +53,7 @@ module WebSharperCLI =
 
 (**
     Runs WebSharperCLI tool to transpile F# to JS using the "bundle" option.
+    WebSharper.exe bundle -out [folder] -name [name] [references]
 **)
 module Program =
     let outputFolderName = "./SPA/Content"
@@ -71,6 +72,12 @@ module Program =
         let perf = Stopwatch.StartNew()
         let result =
             try
+
+                // The order of argument is important here!
+                // bundle 
+                // -out [folder] 
+                // -name [name] 
+                // [references]
                 let args =
                     Arguments [ Bundle
                                 OutputFolder outputFolderName
