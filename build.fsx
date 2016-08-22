@@ -57,8 +57,8 @@ module WebSharperCLI =
 module Program =
     let outputFolderName = "./SPA/Content"
     let outputJSFileName = "SPA"
-    let dllPath = "./SPA/bin/SPA.dll"
-    let timeout = TimeSpan.FromMilliseconds(10000.)
+    let dllPath          = "./SPA/bin/SPA.dll"
+    let timeout          = TimeSpan.FromMilliseconds(10000.)
 
     match fsi.CommandLineArgs with
     | [| _; customer |] ->
