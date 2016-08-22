@@ -119,4 +119,11 @@
       <Private>True</Private>
     </Reference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\modules\ModuleC\ModuleC.fsproj">
+      <Name>ModuleC</Name>
+      <Project>{6a66f885-743d-4320-9767-c037a948adcb}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
 </Project>
