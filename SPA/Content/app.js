@@ -15811,25 +15811,24 @@ var JSON;JSON||(JSON={}),function(){"use strict";function i(n){return n<10?"0"+n
 
 (function()
 {
- var Global=this,Runtime=this.IntelliFactory.Runtime,List,UI,Next,Doc,Modules,ModuleA;
+ var Global=this,Runtime=this.IntelliFactory.Runtime,UI,Next,Doc,List,AttrProxy,Modules,ModuleA;
  Runtime.Define(Global,{
   Modules:{
    ModuleA:{
     page:Runtime.Field(function()
     {
-     var arg20;
-     arg20=List.ofArray([Doc.TextNode("This is module A")]);
-     return Doc.Element("h1",[],arg20);
+     return Doc.Element("h1",List.ofArray([AttrProxy.Create("class","test")]),List.ofArray([Doc.TextNode("This is module A")]));
     })
    }
   }
  });
  Runtime.OnInit(function()
  {
-  List=Runtime.Safe(Global.WebSharper.List);
   UI=Runtime.Safe(Global.WebSharper.UI);
   Next=Runtime.Safe(UI.Next);
   Doc=Runtime.Safe(Next.Doc);
+  List=Runtime.Safe(Global.WebSharper.List);
+  AttrProxy=Runtime.Safe(Next.AttrProxy);
   Modules=Runtime.Safe(Global.Modules);
   return ModuleA=Runtime.Safe(Modules.ModuleA);
  });

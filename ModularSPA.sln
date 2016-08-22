@@ -22,7 +22,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{96F61631-652C-4190-9DAA-01D71EC454CC}"
 	ProjectSection(SolutionItems) = preProject
 		build.cmd = build.cmd
-		build.fsx = build.fsx
+		bundle.fsx = bundle.fsx
 	EndProjectSection
 EndProject
 Global

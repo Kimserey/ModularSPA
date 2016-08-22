@@ -2,6 +2,7 @@
 cls
 
 set instance=%1
+
 setlocal
 set PATH=%PATH%;%ProgramFiles(x86)%\Microsoft SDKs\F#\4.0\Framework\v4.0
 set PATH=%PATH%;%ProgramFiles(x86)%\Microsoft SDKs\F#\3.1\Framework\v4.0
@@ -32,3 +33,9 @@ fsi.exe --exec bundle.fsx %instance%
  if errorlevel 1 (
   exit /b %errorlevel%
 )
+
+::------------------------------------------------
+::			Compile SCSS files
+::------------------------------------------------
+
+sass SPA\scss\app.scss SPA\css\app.css

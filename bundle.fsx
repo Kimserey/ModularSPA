@@ -56,13 +56,15 @@ module WebSharperCLI =
 **)
 module Program =
     let outputFolderName = "./SPA/Content"
-    let outputJSFileName = "SPA"
+    let outputJSFileName = "app"
     let dllPath          = "./SPA/bin/SPA.dll"
     let timeout          = TimeSpan.FromMilliseconds(10000.)
 
     match fsi.CommandLineArgs with
     | [| _; customer |] ->
         
+        stdout.WriteLine "Start bundling..."
+
         let references = 
             Directory.GetFiles(Path.Combine(".", "configs", customer, "bin", "Debug"), "*.dll")
         

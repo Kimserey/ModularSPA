@@ -9,4 +9,4 @@ open WebSharper.UI.Next.Client
 module ModuleA =
 
     let page =
-        h1 [ text "This is module A" ]
+        h1Attr [ attr.``class`` "test" ] [ text "This is module A" ]
