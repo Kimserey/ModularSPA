@@ -15811,14 +15811,14 @@ var JSON;JSON||(JSON={}),function(){"use strict";function i(n){return n<10?"0"+n
 
 (function()
 {
- var Global=this,Runtime=this.IntelliFactory.Runtime,List,UI,Next,Doc,Modules,ModuleC;
+ var Global=this,Runtime=this.IntelliFactory.Runtime,List,UI,Next,Doc,Modules,ModuleA;
  Runtime.Define(Global,{
   Modules:{
-   ModuleC:{
+   ModuleA:{
     page:Runtime.Field(function()
     {
      var arg20;
-     arg20=List.ofArray([Doc.TextNode("This is module C")]);
+     arg20=List.ofArray([Doc.TextNode("This is module A")]);
      return Doc.Element("h1",[],arg20);
     })
    }
@@ -15831,24 +15831,55 @@ var JSON;JSON||(JSON={}),function(){"use strict";function i(n){return n<10?"0"+n
   Next=Runtime.Safe(UI.Next);
   Doc=Runtime.Safe(Next.Doc);
   Modules=Runtime.Safe(Global.Modules);
-  return ModuleC=Runtime.Safe(Modules.ModuleC);
+  return ModuleA=Runtime.Safe(Modules.ModuleA);
  });
  Runtime.OnLoad(function()
  {
-  ModuleC.page();
+  ModuleA.page();
   return;
  });
 }());
 
 (function()
 {
- var Global=this,Runtime=this.IntelliFactory.Runtime,UI,Next,Doc,List,Modules,ModuleC,Customer,Page;
+ var Global=this,Runtime=this.IntelliFactory.Runtime,List,UI,Next,Doc,Modules,ModuleB;
+ Runtime.Define(Global,{
+  Modules:{
+   ModuleB:{
+    page:Runtime.Field(function()
+    {
+     var arg20;
+     arg20=List.ofArray([Doc.TextNode("This is module B")]);
+     return Doc.Element("h1",[],arg20);
+    })
+   }
+  }
+ });
+ Runtime.OnInit(function()
+ {
+  List=Runtime.Safe(Global.WebSharper.List);
+  UI=Runtime.Safe(Global.WebSharper.UI);
+  Next=Runtime.Safe(UI.Next);
+  Doc=Runtime.Safe(Next.Doc);
+  Modules=Runtime.Safe(Global.Modules);
+  return ModuleB=Runtime.Safe(Modules.ModuleB);
+ });
+ Runtime.OnLoad(function()
+ {
+  ModuleB.page();
+  return;
+ });
+}());
+
+(function()
+{
+ var Global=this,Runtime=this.IntelliFactory.Runtime,UI,Next,Doc,List,Modules,ModuleA,ModuleB,Customer,Page;
  Runtime.Define(Global,{
   Customer:{
    Page:{
     doc:Runtime.Field(function()
     {
-     return Doc.Concat(List.ofArray([ModuleC.page()]));
+     return Doc.Concat(List.ofArray([ModuleA.page(),ModuleB.page()]));
     })
    }
   }
@@ -15860,7 +15891,8 @@ var JSON;JSON||(JSON={}),function(){"use strict";function i(n){return n<10?"0"+n
   Doc=Runtime.Safe(Next.Doc);
   List=Runtime.Safe(Global.WebSharper.List);
   Modules=Runtime.Safe(Global.Modules);
-  ModuleC=Runtime.Safe(Modules.ModuleC);
+  ModuleA=Runtime.Safe(Modules.ModuleA);
+  ModuleB=Runtime.Safe(Modules.ModuleB);
   Customer=Runtime.Safe(Global.Customer);
   return Page=Runtime.Safe(Customer.Page);
  });

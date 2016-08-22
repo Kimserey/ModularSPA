@@ -39,14 +39,14 @@ module WebSharperCLI =
         @".\packages\WebSharper.3.6.15.238\tools\net40\WebSharper.exe" |> quote
     
     let references = 
-        [ @".\packages\WebSharper.3.6.14.237\lib\net40\WebSharper.Core.JavaScript.dll"
-          @".\packages\WebSharper.3.6.14.237\lib\net40\WebSharper.Collections.dll"
-          @".\packages\WebSharper.3.6.14.237\lib\net40\WebSharper.Core.dll"
-          @".\packages\WebSharper.3.6.14.237\lib\net40\WebSharper.JavaScript.dll"
-          @".\packages\WebSharper.3.6.14.237\lib\net40\WebSharper.JQuery.dll"
-          @".\packages\WebSharper.3.6.14.237\lib\net40\WebSharper.Main.dll"
-          @".\packages\WebSharper.3.6.14.237\lib\net40\WebSharper.Sitelets.dll"
-          @".\packages\WebSharper.3.6.14.237\lib\net40\WebSharper.Web.dll"
+        [ @".\packages\WebSharper.3.6.15.238\lib\net40\WebSharper.Core.JavaScript.dll"
+          @".\packages\WebSharper.3.6.15.238\lib\net40\WebSharper.Collections.dll"
+          @".\packages\WebSharper.3.6.15.238\lib\net40\WebSharper.Core.dll"
+          @".\packages\WebSharper.3.6.15.238\lib\net40\WebSharper.JavaScript.dll"
+          @".\packages\WebSharper.3.6.15.238\lib\net40\WebSharper.JQuery.dll"
+          @".\packages\WebSharper.3.6.15.238\lib\net40\WebSharper.Main.dll"
+          @".\packages\WebSharper.3.6.15.238\lib\net40\WebSharper.Sitelets.dll"
+          @".\packages\WebSharper.3.6.15.238\lib\net40\WebSharper.Web.dll"
           @".\packages\WebSharper.UI.Next.3.6.15.211\lib\net40\WebSharper.UI.Next.dll"
           @".\packages\WebSharper.UI.Next.3.6.15.211\lib\net40\WebSharper.UI.Next.Templating.dll" ]
     
@@ -106,7 +106,7 @@ module Program =
                 Error (ex.Message, perf.Elapsed)
 
         match result with
-        | Success time ->      stdout.WriteLine(sprintf "Successfuly transpiled to JS. [%fs]" time.TotalSeconds)
+        | Success time ->      stdout.WriteLine(sprintf "Successfully transpiled to JS. [%fs]" time.TotalSeconds)
         | Error (msg, time) -> stderr.WriteLine(sprintf "%s [%fs]" msg time.TotalSeconds)
         | Timeout ->           stderr.WriteLine(sprintf "Process timed out. [%fs]" timeout.TotalSeconds)
     
