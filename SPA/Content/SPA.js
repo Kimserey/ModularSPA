@@ -15755,6 +15755,122 @@ var JSON;JSON||(JSON={}),function(){"use strict";function i(n){return n<10?"0"+n
  });
 }());
 
+(function () {
+    var lastTime = 0;
+    var vendors = ['webkit', 'moz'];
+    for (var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+        window.requestAnimationFrame = window[vendors[x] + 'RequestAnimationFrame'];
+        window.cancelAnimationFrame =
+          window[vendors[x] + 'CancelAnimationFrame'] || window[vendors[x] + 'CancelRequestAnimationFrame'];
+    }
+
+    if (!window.requestAnimationFrame)
+        window.requestAnimationFrame = function (callback, element) {
+            var currTime = new Date().getTime();
+            var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+            var id = window.setTimeout(function () { callback(currTime + timeToCall); },
+              timeToCall);
+            lastTime = currTime + timeToCall;
+            return id;
+        };
+
+    if (!window.cancelAnimationFrame)
+        window.cancelAnimationFrame = function (id) {
+            clearTimeout(id);
+        };
+}());
+;
+(function()
+{
+ var Global=this,Runtime=this.IntelliFactory.Runtime,UI,Next,Doc,Customer,SPA,Client;
+ Runtime.Define(Global,{
+  SPA:{
+   Client:{
+    Main:Runtime.Field(function()
+    {
+     return Doc.RunById("main",Customer.Page.doc());
+    })
+   }
+  }
+ });
+ Runtime.OnInit(function()
+ {
+  UI=Runtime.Safe(Global.WebSharper.UI);
+  Next=Runtime.Safe(UI.Next);
+  Doc=Runtime.Safe(Next.Doc);
+  Customer=Runtime.Safe(Global.Customer);
+  SPA=Runtime.Safe(Global.SPA);
+  return Client=Runtime.Safe(SPA.Client);
+ });
+ Runtime.OnLoad(function()
+ {
+  Client.Main();
+  return;
+ });
+}());
+
+(function()
+{
+ var Global=this,Runtime=this.IntelliFactory.Runtime,List,UI,Next,Doc,Modules,ModuleC;
+ Runtime.Define(Global,{
+  Modules:{
+   ModuleC:{
+    page:Runtime.Field(function()
+    {
+     var arg20;
+     arg20=List.ofArray([Doc.TextNode("This is module C")]);
+     return Doc.Element("h1",[],arg20);
+    })
+   }
+  }
+ });
+ Runtime.OnInit(function()
+ {
+  List=Runtime.Safe(Global.WebSharper.List);
+  UI=Runtime.Safe(Global.WebSharper.UI);
+  Next=Runtime.Safe(UI.Next);
+  Doc=Runtime.Safe(Next.Doc);
+  Modules=Runtime.Safe(Global.Modules);
+  return ModuleC=Runtime.Safe(Modules.ModuleC);
+ });
+ Runtime.OnLoad(function()
+ {
+  ModuleC.page();
+  return;
+ });
+}());
+
+(function()
+{
+ var Global=this,Runtime=this.IntelliFactory.Runtime,UI,Next,Doc,List,Modules,ModuleC,Customer,Page;
+ Runtime.Define(Global,{
+  Customer:{
+   Page:{
+    doc:Runtime.Field(function()
+    {
+     return Doc.Concat(List.ofArray([ModuleC.page()]));
+    })
+   }
+  }
+ });
+ Runtime.OnInit(function()
+ {
+  UI=Runtime.Safe(Global.WebSharper.UI);
+  Next=Runtime.Safe(UI.Next);
+  Doc=Runtime.Safe(Next.Doc);
+  List=Runtime.Safe(Global.WebSharper.List);
+  Modules=Runtime.Safe(Global.Modules);
+  ModuleC=Runtime.Safe(Modules.ModuleC);
+  Customer=Runtime.Safe(Global.Customer);
+  return Page=Runtime.Safe(Customer.Page);
+ });
+ Runtime.OnLoad(function()
+ {
+  Page.doc();
+  return;
+ });
+}());
+
 (function()
 {
  var Global=this,Runtime=this.IntelliFactory.Runtime,Unchecked,Seq,Option,Control,Disposable,Arrays,FSharpEvent,Util,Event,Event1,Collections,ResizeArray,ResizeArrayProxy,EventModule,HotStream,HotStream1,Concurrency,Operators,TimeoutException,setTimeout,clearTimeout,LinkedList,T,MailboxProcessor,Observable,Observer,Ref,Observable1,List,T1,Observer1;
@@ -17219,90 +17335,6 @@ var JSON;JSON||(JSON={}),function(){"use strict";function i(n){return n<10?"0"+n
  });
  Runtime.OnLoad(function()
  {
-  return;
- });
-}());
-
-(function () {
-    var lastTime = 0;
-    var vendors = ['webkit', 'moz'];
-    for (var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
-        window.requestAnimationFrame = window[vendors[x] + 'RequestAnimationFrame'];
-        window.cancelAnimationFrame =
-          window[vendors[x] + 'CancelAnimationFrame'] || window[vendors[x] + 'CancelRequestAnimationFrame'];
-    }
-
-    if (!window.requestAnimationFrame)
-        window.requestAnimationFrame = function (callback, element) {
-            var currTime = new Date().getTime();
-            var timeToCall = Math.max(0, 16 - (currTime - lastTime));
-            var id = window.setTimeout(function () { callback(currTime + timeToCall); },
-              timeToCall);
-            lastTime = currTime + timeToCall;
-            return id;
-        };
-
-    if (!window.cancelAnimationFrame)
-        window.cancelAnimationFrame = function (id) {
-            clearTimeout(id);
-        };
-}());
-;
-(function()
-{
- var Global=this,Runtime=this.IntelliFactory.Runtime,jQuery,UI,Next,Var,List,Doc,View1,SPA,Client,Var1,Arrays,AttrProxy,AttrModule,ListModel1;
- Runtime.Define(Global,{
-  SPA:{
-   Client:{
-    Main:Runtime.Field(function()
-    {
-     var newName,ListContainer,Add;
-     jQuery("#main").empty();
-     newName=Var.Create("");
-     ListContainer=List.ofArray([Doc.Convert(function(name)
-     {
-      var Name;
-      Name=View1.Const(name);
-      return Doc.Concat([Doc.Element("li",[],[Doc.TextView(Name)])]);
-     },Client.People().get_View())]);
-     Add=function()
-     {
-      return function()
-      {
-       Client.People().Add(Var.Get(newName));
-       return Var1.Set(newName,"");
-      };
-     };
-     return Doc.RunById("main",Doc.Concat([Doc.TextNode("\n        "),Doc.Element("ul",[],Arrays.ofSeq(ListContainer)),Doc.TextNode("\n        "),Doc.Element("div",[],[Doc.TextNode("\n            "),Doc.Input([AttrProxy.Create("placeholder","Name")],newName),Doc.TextNode("\n            "),Doc.Element("button",[AttrModule.Handler("click",Add)],[Doc.TextNode("Add")]),Doc.TextNode("\n            "),Doc.Element("div",[],[Doc.TextNode("You are about to add: "),Doc.TextView(newName.get_View())]),Doc.TextNode("\n        ")]),Doc.TextNode("\n    ")]));
-    }),
-    People:Runtime.Field(function()
-    {
-     return ListModel1.FromSeq(List.ofArray(["John","Paul"]));
-    })
-   }
-  }
- });
- Runtime.OnInit(function()
- {
-  jQuery=Runtime.Safe(Global.jQuery);
-  UI=Runtime.Safe(Global.WebSharper.UI);
-  Next=Runtime.Safe(UI.Next);
-  Var=Runtime.Safe(Next.Var);
-  List=Runtime.Safe(Global.WebSharper.List);
-  Doc=Runtime.Safe(Next.Doc);
-  View1=Runtime.Safe(Next.View1);
-  SPA=Runtime.Safe(Global.SPA);
-  Client=Runtime.Safe(SPA.Client);
-  Var1=Runtime.Safe(Next.Var1);
-  Arrays=Runtime.Safe(Global.WebSharper.Arrays);
-  AttrProxy=Runtime.Safe(Next.AttrProxy);
-  AttrModule=Runtime.Safe(Next.AttrModule);
-  return ListModel1=Runtime.Safe(Next.ListModel1);
- });
- Runtime.OnLoad(function()
- {
-  Client.People();
-  Client.Main();
   return;
  });
 }());

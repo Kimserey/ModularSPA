@@ -19,6 +19,12 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ModuleB", "modules\ModuleB\
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ModuleC", "modules\ModuleC\ModuleC.fsproj", "{6A66F885-743D-4320-9767-C037A948ADCB}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{96F61631-652C-4190-9DAA-01D71EC454CC}"
+	ProjectSection(SolutionItems) = preProject
+		build.cmd = build.cmd
+		build.fsx = build.fsx
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -1,4 +1,4 @@
-namespace CustomerB
+namespace Customer
 
 open WebSharper
 open WebSharper.UI.Next
